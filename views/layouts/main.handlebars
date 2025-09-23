@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>3DValley</title>
+</head>
+<body>
+    {{{body}}}
+
+    <script>
+        function hide(toHide){
+            document.getElementById(toHide).style.display = "none";
+        }
+
+        function show(toShow, display){
+            document.getElementById(toShow).style.display = display;
+        }
+
+        function hideTwo(toHide1, toHide2){
+            document.getElementById(toHide1).style.display = "none";
+            document.getElementById(toHide2).style.display = "none";
+        }
+
+        function showTwo(toShow1, display1, toShow2, display2){
+            document.getElementById(toShow1).style.display = display1;
+            document.getElementById(toShow2).style.display = display2;
+        }
+
+        function EditSwitch(textId, inputId, buttonId, editSVGId, cancelSVGId){
+            let text = document.getElementById(textId);
+            let input = document.getElementById(inputId);
+            let button = document.getElementById(buttonId);
+            let editSVG = document.getElementById(editSVGId);
+            let cancelSVG = document.getElementById(cancelSVGId);
+
+            button.disabled = true;
+
+            if(text.style.animationName == "hideAnimation"){
+                input.style.animation = "hideAnimation .4s both";
+                text.style.animation = "showAnimation .8s both ease-in";
+                button.style.animation = "buttonToEditAnimation .4s both ease-in";
+                editSVG.style.animation = "buttonSVGShow .4s .4s both";
+                cancelSVG.style.animation = "buttonSVGHide .4s both";
+
+                setTimeout(()=>{
+                    button.disabled = false;
+                    clearInput(inputId);
+
+                    //deixa as animações instantâneas pra não ficar reproduzindo quando setar div como display flex
+                    input.style.animation = "hideAnimation 0s both";
+                    text.style.animation = "showAnimation 0s both";
+                    button.style.animation = "buttonToEditAnimation 0s both";
+                    editSVG.style.animation = "buttonSVGShow 0s both";
+                    cancelSVG.style.animation = "buttonSVGHide 0s both";
+
+                },800)   
+            }
+            else{
+                text.style.animation = "hideAnimation .4s both ease-out";
+                input.style.animation = "showAnimation .8s both";
+                button.style.animation = "buttonToCancelAnimation .4s both ease-in";
+                editSVG.style.animation = "buttonSVGHide .4s both";
+                cancelSVG.style.animation = "buttonSVGShow .4s .4s both";
+
+                setTimeout(()=>{
+                    input.focus();
+                }, 450)
+
+                setTimeout(()=>{
+                    button.disabled = false;
+
+                    //deixa as animações instantâneas pra não ficar reproduzindo quando setar div como display flex
+                    text.style.animation = "hideAnimation 0s both";
+                    input.style.animation = "showAnimation 0s both";
+                    button.style.animation = "buttonToCancelAnimation 0s both";
+                    editSVG.style.animation = "buttonSVGHide 0s both";
+                    cancelSVG.style.animation = "buttonSVGShow 0s both";
+
+                }, 800)
+            }
+        }
+
+        function clearInput(inputId){
+            document.getElementById(inputId).value = "";
+        }  
+
+        function getInputsIds(toGet, inputClass){
+            let children = {};
+            children = document.getElementById(toGet).getElementsByClassName(inputClass);
+            for(let i = 0; i < children.length; i++){
+                children[i].value = '';
+
+            }
+        }   
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,8 @@
+create table catalogo (
+    id int auto_increment primary key,
+    name varchar(255) NOT NULL,
+    description mediumtext NOT NULL,
+    imgSrc varchar(255) NOT NULL,
+    infillPreset int,
+    colorPreset int
+);

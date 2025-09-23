@@ -1,0 +1,513 @@
+ *{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html{
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        body{
+            width: 100%;
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+            display: flex;
+            background-color: #0f0f0f;
+            flex-direction: column;
+
+        }
+
+        #tituloHeader{
+            color: #b7b7b7;
+            font-size: 200%;
+            font-weight: bolder;
+    
+        }
+        
+        header{
+            width: 100%;
+            background-color: #222222;
+            height: 100px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .left{
+            position: relative;
+            left: 0px;
+        }
+
+        .right{
+            position: relative;
+            right: 0px;
+        }
+
+        .center{
+            margin: 0 auto;
+        }
+
+        #socialHeader{
+            font-size: small;
+            border: 1px, #454545, solid;
+            padding: 10px;
+            margin: 1%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            height: 70%;
+        }
+
+        #adminBody{
+            height: 100%;
+            width: 100%;
+            background-color: #0f0f0f;
+        }
+
+        #adminMenu{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #0f0f0f4d;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            transition: opacity, .2s;
+        }
+
+        #adminAddMenu{
+            width: 55%;
+            height: 70%;
+            background-color: #222222;
+            display: flex;
+            flex-direction: column;
+            border-radius: 7px;
+            border: #454545 solid 2px;
+        }
+
+        .adminMenuButtonBar{
+            height: 37px;
+            display: flex;
+            flex-direction: row-reverse;
+            width: 100%;
+        }
+
+        .adminMenuButton{
+            background-color: #454545;
+            color: #b1b2b6;
+            width: 33px;
+            height: 33px;
+            border: none;
+            font-weight: bolder;
+            transition: background-color, .2s;
+            border-radius: 7px;
+        }
+
+        .adminAddMenuClose{
+            background-color: #454545;
+            color: #b1b2b6;
+            width: 33px;
+            height: 33px;
+            border: none;
+            font-weight: bolder;
+            transition: background-color, .2s;
+            border-radius: 7px;
+            position: inherit;
+            top: -1px;
+            right: -1px;
+            border-radius: 0px 7px 0px 7px;
+        }
+
+        .adminAddMenuClose:hover{
+            background-color: #c10000;
+            color: #ffffff;
+        }
+
+        .adminItem{  
+            width: 150px;
+            height: 220px;
+            background-color: #222222;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            font-weight: bold;
+            color: #9b9b9b;
+            transition: .2s;
+            border: 2px solid #454545;
+            border-radius: 7px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .adminItem:hover{
+            background-color: #454545;
+            color: #9b9b9b;
+            margin: 2px;
+            width: 166px;
+            height: 236px;
+            border: 2px, solid, #01c208;
+            font-size: larger;
+        }
+
+        .adminItem:active{
+            background-color: #01c208;
+            color: #ffffff;
+            margin: 2px;
+            width: 166px;
+            height: 236px;
+            border: 2px, solid, #01c208;
+            font-size: larger;
+        }
+
+        .adminSlider{
+            display: inline-flex;
+            flex-direction: row;
+            margin: 5px 10px 5px 10px;
+        }
+
+        .centerText{
+            text-align: center;
+            text-justify: center;
+        }
+
+        #adminAddMenuForm{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90%;
+        }
+
+        #adminAddMenuFormDiv{
+            width: 40%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-content:center;
+            padding: 10px;
+        }
+
+        .adminAddMenuInput{
+            margin: 10px;
+            height: 40px;
+            background-color: #454545;
+            border-radius: 7px;
+            box-shadow: 0px 0px 3px #9b9b9b ;
+            border: none;
+            color: #9b9b9b;
+        }
+
+        input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .adminAddMenuTextArea{
+            margin: 10px;
+            height: 80px;
+        }
+
+        textarea{
+            resize: none;
+            background-color: #454545;
+            border-radius: 7px;
+            box-shadow: 0px 0px 3px #9b9b9b ;
+            border: none;
+            color: #9b9b9b;
+        }
+
+        #adminShowAll{
+            width: 70%;
+            height: 80%;
+            background-color: #222222;
+            display: flex;
+            border-radius: 7px;
+            overflow-y: auto;
+            border: #454545 solid 2px;
+        }
+
+        .adminShowAllItem{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border:solid, 2px, #454545;
+            width: 200px;
+            height: 300px;
+            border-radius: 7px;
+            color: #9b9b9b;
+            margin: 5px;
+            padding: 1%;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            transition: .2s;
+        }
+
+        .adminShowAllItem:hover{
+            width: 210px;
+            height: 310px;
+            margin: 0px;
+        }
+
+        .adminShowAllItem:active{
+            width: 210px;
+            height: 310px;
+            margin: 0px;
+            background-color: #454545;
+        }
+        
+        h1, h2, h3, h4, h5, h6{
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #adminShowAllContent{
+            overflow-y: scroll;
+            display:flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 98%;
+            padding: 1%;
+            justify-content: center;
+            min-height: 80%;
+            position: relative;
+        }
+
+        .adminShowAllImage{
+            width: 100%;
+            border-radius: 7px;
+            top: 0px;
+        }
+
+        .adminShowAllItemText{
+            width: 100%;
+            text-align: left;
+        }
+
+        #adminEditMenu{
+            display: none;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background-color: #0f0f0f4d;
+            position:absolute;
+        }
+
+        .adminEditItem{
+            width: 40%;
+            height: 80%;
+            background-color: #222222;
+            position: absolute;
+            left: 30%;
+            top: 10%;
+            display: none;
+            border-radius: 7px;
+            flex-direction: column;
+            border: solid, 2px, #454545;
+            padding: 15px;
+        }
+
+        .adminEditItemImg{
+            width: 100%;
+            border-radius: 7px;
+            height: 100%;
+
+        }
+
+        .adminEditItemImgDiv{
+            width: 200px;
+            border-radius: 7px;
+            background-color: #0f0f0f;
+            height: 200px;
+            border: solid, 2px, #9b9b9b;
+        }
+
+        .adminEditItemUpper{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .adminEditItemUpperInput{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 60%;
+        }
+        
+        .adminEditItemUpperInputContainer{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .adminEditItemInput{
+            display: flex;
+            width: 80%;
+            height: 25px;
+            border-radius: 7px;
+            background-color: #454545;
+            color: #9b9b9b;
+            border: none;
+            margin: 2px;
+            border: 1px, solid, #454545;
+            transition:.2s;
+            animation:hideAnimation 0s both;
+        }
+
+        .adminEditItemInput:hover{
+            border: 1px, solid, #9b9b9b;
+        }
+
+        .adminEditItemInput:focus{
+            border:1px, solid, #ffffff;
+        }
+
+        .adminEditItemLabel{
+            color: #9b9b9b;
+        }
+
+        .adminEditItemInputText{
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        .adminEditItemInputDiv{
+            display: flex;
+            width: 80%;
+            flex-direction: row;
+            color: #9b9b9b;
+            justify-content: space-between;
+            overflow-y: hidden;
+            align-items: center;
+        }
+
+        .adminEditButton{
+            color: #222222;
+            background-color: #01a707;
+            height: 34px;
+            width: 34px;
+            border: none;
+            border-radius: 7px;
+            transition: .15s;
+            margin: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .adminEditButton:hover{
+            color: #222222;
+            background-color: #01c208;
+            width: 36px;
+            height: 36px;
+            margin: 3px;
+        }
+
+        .adminEditButton:active{
+            color: #ffffff;
+            background-color: #01c208;
+            width: 40px;
+            height: 40px;
+            margin: 1px;
+        }
+
+        .adminEditCancelButton{
+            animation: buttonSVGHide 0s both; 
+        }
+
+        @keyframes hideAnimation{
+            0%{
+                width: 80%;
+            }
+            100%{
+                width: 0px;
+                display: none;
+            }
+        }
+        @keyframes showAnimation{
+            0%{
+                width: 0%;
+                display: none;
+            }
+            50%{
+                width: 0%;
+                display: none;
+            }
+            100%{
+                width: 80%;
+                display: flex;
+            }
+
+        }
+
+        @keyframes buttonToCancelAnimation{
+            0%{
+                color: #222222;
+                background-color: #01c208;
+            }
+            100%{
+                color: #ffffff;
+                background-color: #c10000;
+                
+            }
+        } 
+        @keyframes buttonToEditAnimation{
+            0%{
+                color: #ffffff;
+                background-color: #c10000;
+                
+            }
+            100%{
+                color: #222222;
+                background-color: #01c208;
+            }
+        }
+
+        @keyframes buttonSVGHide{
+            0%{
+                width: 20px;
+                height: 20px;
+                display: flex;
+
+            }
+            5%{
+                width: 20px;
+                height: 20px;
+                display: flex;
+            }
+            100%{
+                width: 0px;
+                height: 0px;
+                display: none;
+
+            }
+        }
+        @keyframes buttonSVGShow{
+            0%{
+                width: 0px;
+                height: 0px;
+                display: none;
+
+            }
+            5%{
+                width: 0px;
+                height: 0px;
+                display: none;
+
+            }
+            100%{
+                width: 20px;
+                height: 20px;
+                display: flex;
+                
+            }
+
+        }

@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../node"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "3dNIBo"
+	}
+}
