@@ -440,6 +440,8 @@
             position: inherit;
             bottom: 0px;
             column-gap: 10px;
+            animation: hideEditFooterAnimation 0s both;
+            overflow-y: hidden;
         }
 
         .adminEditItemFooterButton{
@@ -548,6 +550,7 @@
 
             }
         }
+
         @keyframes buttonSVGShow{
             0%{
                 width: 0px;
@@ -564,5 +567,36 @@
                 height: 20px;
                 display: flex;
                 
+            }
+
+        }
+
+        @keyframes showEditFooterAnimation {
+            0%{
+                max-height: 0px;
+                display: none;
+            }
+            5%{
+                max-height: 0px;
+                display: none;
+            }
+            100%{
+                max-height: 60px;
+                display: flex;
+            }
+        }
+
+        @keyframes hideEditFooterAnimation {
+            0%{
+                max-height: 60px;
+                display: flex;
+            }
+            5%{
+                max-height: 60px;
+                display: flex;
+            }
+            100%{
+                max-height: 0px;
+                display: none;
             }
         }

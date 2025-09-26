@@ -75,7 +75,7 @@
                             
                             <h3 id="editNameText{{this.id}}" class="adminEditItemInputText">{{this.name}}</h3>
                             
-                            <button id="adminEditNameButton{{this.id}}" class="adminEditButton" onclick="EditSwitch('editNameText{{this.id}}', 'editNameInput{{this.id}}', 'adminEditNameButton{{this.id}}', 'editNameSVG{{this.id}}', 'cancelNameSVG{{this.id}}')">                    
+                            <button id="adminEditNameButton{{this.id}}" class="adminEditButton" onclick="EditSwitch('editNameText{{this.id}}', 'editNameInput{{this.id}}', 'adminEditNameButton{{this.id}}', 'editNameSVG{{this.id}}', 'cancelNameSVG{{this.id}}'); checkEditButton('item{{this.id}}', 'adminEditButton', 'adminEditItemFooter{{this.id}}')">                    
                                 <svg id="editNameSVG{{this.id}}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="adminEditPencilButton" viewBox="0 0 16 16">
                                     <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
                                 </svg>
@@ -90,13 +90,13 @@
 
                     <div class="adminEditItemUpperInputContainer">
                         <label class="adminEditItemLabel" for="editImg{{this.id}}">URL da imagem:</label>
-                        <input class="adminEditItemInput" type="url" name="editImg{{this.id}}" id="editImg{{this.id}}">
+
                         <div class="adminEditItemInputDiv">
                             <input class="adminEditItemInput" type="text" name="editImage{{this.id}}" id="editImageInput{{this.id}}">
                             
-                            <h3 id="editImageText{{this.id}}" class="adminEditItemInputText">{{this.imgSrc}}</h3>
+                            <a href="{{this.imgSrc}}" target="_blank" id="editImageText{{this.id}}" class="adminEditItemInputText">{{this.imgSrc}}</a>
                             
-                            <button id="adminEditImageButton{{this.id}}" class="adminEditButton" onclick="EditSwitch('editImageText{{this.id}}', 'editImageInput{{this.id}}', 'adminEditImageButton{{this.id}}', 'editImageSVG{{this.id}}', 'cancelImageSVG{{this.id}}')">                    
+                            <button id="adminEditImageButton{{this.id}}" class="adminEditButton" onclick="EditSwitch('editImageText{{this.id}}', 'editImageInput{{this.id}}', 'adminEditImageButton{{this.id}}', 'editImageSVG{{this.id}}', 'cancelImageSVG{{this.id}}'); checkEditButton('item{{this.id}}', 'adminEditButton', 'adminEditItemFooter{{this.id}}')">                    
                                 <svg id="editImageSVG{{this.id}}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="adminEditPencilButton" viewBox="0 0 16 16">
                                     <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
                                 </svg>
@@ -112,8 +112,8 @@
             <div class="adminEditItemData">
             </div>
 
-            <div class="adminEditItemFooter">
-                <button class="adminEditItemFooterButton" id="adminEditItemFooterCancelButton" onclick="adminCancelEdit('item{{this.id}}', 'adminEditButton')">
+            <div class="adminEditItemFooter" id="adminEditItemFooter{{this.id}}">
+                <button class="adminEditItemFooterButton" id="adminEditItemFooterCancelButton" onclick="adminCancelEdit('item{{this.id}}', 'adminEditButton');">
                     Cancelar
                 </button>
 
