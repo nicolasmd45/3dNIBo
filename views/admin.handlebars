@@ -1,19 +1,23 @@
 
 <div id="adminBody">
     <div class="adminSlider">
+
         <div class="adminItem" onclick="location.href='/inicial'">
             <div class="centerText">Página inicial</div>
         </div>
+
         <div onclick="show('adminMenu', 'flex'); hide('adminShowAll'), show('adminAddMenu', 'flex')" class="adminItem">
             <div  class="centerText">Adicionar <br> item</div>
         </div>
+
         <div class="adminItem" onclick="hide('adminAddMenu'), show('adminMenu', 'flex'), show('adminShowAll', 'flex')">
             <div class="centerText">Mostrar todos os itens</div>
         </div>
+
     </div>
 </div>
 
-
+                                <!--                          Admin Add Menu                               -->
 
 <div id="adminMenu">
     <div id="adminAddMenu">
@@ -32,6 +36,7 @@
         </form>
     </div>
 
+                                <!--                       Admin Show All Menu                          -->
 
     <div id="adminShowAll">
         <div id="adminShowAllContent">
@@ -50,39 +55,71 @@
     </div>
 </div>
 
-
+                                <!--                        Admin Edit Menu                             -->
 
 <div id="adminEditMenu">
     {{#each itemsHandle}}
         <div class="adminEditItem" id="item{{this.id}}">
-            <button class="adminAddMenuClose" onclick="hideTwo('item{{this.id}}', 'adminEditMenu'); getInputsIds('item{{this.id}}', 'adminEditItemInput');"> X </button>
+            <button class="adminAddMenuClose" onclick="hideTwo('item{{this.id}}', 'adminEditMenu')"> X </button>
             <div class="adminEditItemUpper">
                 <div class="adminEditItemImgDiv">
                     <img class="adminEditItemImg" src="{{this.imgSrc}}" alt="{{this.name}} image">
                 </div>
+
                 <div class="adminEditItemUpperInput">
                     <div class="adminEditItemUpperInputContainer">
                         <label class="adminEditItemLabel" for="editName{{this.id}}">Nome do produto:</label>
+
                         <div class="adminEditItemInputDiv">
                             <input class="adminEditItemInput" type="text" name="editName{{this.id}}" id="editNameInput{{this.id}}">
+                            
                             <h3 id="editNameText{{this.id}}" class="adminEditItemInputText">{{this.name}}</h3>
-                            <button id="adminEditButton{{this.id}}" class="adminEditButton" onclick="EditSwitch('editNameText{{this.id}}', 'editNameInput{{this.id}}', 'adminEditButton{{this.id}}', 'editSVG{{this.id}}', 'cancelSVG{{this.id}}')">
-                                <svg id="editSVG{{this.id}}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="adminEditPencilButton" viewBox="0 0 16 16">
+                            
+                            <button id="adminEditNameButton{{this.id}}" class="adminEditButton" onclick="EditSwitch('editNameText{{this.id}}', 'editNameInput{{this.id}}', 'adminEditNameButton{{this.id}}', 'editNameSVG{{this.id}}', 'cancelNameSVG{{this.id}}')">                    
+                                <svg id="editNameSVG{{this.id}}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="adminEditPencilButton" viewBox="0 0 16 16">
                                     <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
                                 </svg>
-                                <svg id="cancelSVG{{this.id}}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="adminEditCancelButton" viewBox="0 0 16 16">
+                               
+                                <svg id="cancelNameSVG{{this.id}}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="adminEditCancelButton" viewBox="0 0 16 16">
+                                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                                </svg>
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <div class="adminEditItemUpperInputContainer">
+                        <label class="adminEditItemLabel" for="editImg{{this.id}}">URL da imagem:</label>
+                        <input class="adminEditItemInput" type="url" name="editImg{{this.id}}" id="editImg{{this.id}}">
+                        <div class="adminEditItemInputDiv">
+                            <input class="adminEditItemInput" type="text" name="editImage{{this.id}}" id="editImageInput{{this.id}}">
+                            
+                            <h3 id="editImageText{{this.id}}" class="adminEditItemInputText">{{this.imgSrc}}</h3>
+                            
+                            <button id="adminEditImageButton{{this.id}}" class="adminEditButton" onclick="EditSwitch('editImageText{{this.id}}', 'editImageInput{{this.id}}', 'adminEditImageButton{{this.id}}', 'editImageSVG{{this.id}}', 'cancelImageSVG{{this.id}}')">                    
+                                <svg id="editImageSVG{{this.id}}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="adminEditPencilButton" viewBox="0 0 16 16">
+                                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+                                </svg>
+                               
+                                <svg id="cancelImageSVG{{this.id}}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="adminEditCancelButton" viewBox="0 0 16 16">
                                     <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
                                 </svg>
                             </button>
                         </div>
                     </div>
-                    <div class="adminEditItemUpperInputContainer">
-                        <label class="adminEditItemLabel" for="editImg{{this.id}}">URL da imagem:</label>
-                        <input class="adminEditItemInput" type="url" name="editImg{{this.id}}" id="editImg{{this.id}}">
-                    </div>
                 </div>
             </div>
             <div class="adminEditItemData">
+            </div>
+
+            <div class="adminEditItemFooter">
+                <button class="adminEditItemFooterButton" id="adminEditItemFooterCancelButton" onclick="adminCancelEdit('item{{this.id}}', 'adminEditButton')">
+                    Cancelar
+                </button>
+
+                <button class="adminEditItemFooterButton" id="adminEditItemFooterSaveButton" onclick="adminSaveEdit">
+                    Salvar
+                </button>
             </div>
         </div>
     {{/each}}

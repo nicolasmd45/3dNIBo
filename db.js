@@ -3,10 +3,10 @@ const mysql = require('mysql2/promise');
 
 //Conexão com o banco 
 const conn = mysql.createPool({
-  host: "localhost", 
-  user: "root", 
-  database: "3dnibo",
-  password: "131020"
+  host: 'localhost', 
+  user: 'root', 
+  database: '3dnibo',
+  password: '131020'
 })
 
 function DatabaseControl(){

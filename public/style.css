@@ -391,12 +391,12 @@
 
         .adminEditButton{
             color: #222222;
-            background-color: #01a707;
-            height: 34px;
-            width: 34px;
+            background-color: #01c208;
+            min-height: 34px;
+            min-width: 34px;
             border: none;
             border-radius: 7px;
-            transition: .15s;
+            transition: .1s;
             margin: 4px;
             display: flex;
             align-items: center;
@@ -405,22 +405,81 @@
 
         .adminEditButton:hover{
             color: #222222;
-            background-color: #01c208;
-            width: 36px;
-            height: 36px;
+            min-width: 36px;
+            min-height: 36px;
             margin: 3px;
         }
 
         .adminEditButton:active{
             color: #ffffff;
             background-color: #01c208;
-            width: 40px;
-            height: 40px;
+            min-width: 40px;
+            min-height: 40px;
             margin: 1px;
         }
 
         .adminEditCancelButton{
             animation: buttonSVGHide 0s both; 
+        }
+
+        .adminEditCancelButton, .adminEditPencilButton{
+            height: 20px;
+            width: 20px;
+        }
+
+        .adminEditItemInputText{
+            font-size: medium;
+        }
+
+        .adminEditItemFooter{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            height: 60px;
+            position: inherit;
+            bottom: 0px;
+            column-gap: 10px;
+        }
+
+        .adminEditItemFooterButton{
+            height: 40px;
+            width: 100px;
+            margin: 5px;
+            border: none;
+            border-radius: 7px;
+            font-weight: 500;
+            transition: .1s;
+            color: #ffffff;
+        }
+
+        .adminEditItemFooterButton:hover{
+            margin: 3px;
+            height: 44px;
+            width: 104px;
+            font-size: medium;
+        }
+
+        #adminEditItemFooterCancelButton{
+            background-color: #c10000;
+        }
+
+        #adminEditItemFooterCancelButton:active{
+            margin: 3px;
+            height: 44px;
+            width: 104px;
+            background-color: #9d0000;
+        }
+
+        #adminEditItemFooterSaveButton{
+            background-color: #01c208;
+        }
+
+        #adminEditItemFooterSaveButton:active{
+            margin: 3px;
+            height: 44px;
+            width: 104px;
+            background-color: #009f05;
         }
 
         @keyframes hideAnimation{
@@ -476,7 +535,6 @@
                 width: 20px;
                 height: 20px;
                 display: flex;
-
             }
             5%{
                 width: 20px;
@@ -495,13 +553,11 @@
                 width: 0px;
                 height: 0px;
                 display: none;
-
             }
             5%{
                 width: 0px;
                 height: 0px;
                 display: none;
-
             }
             100%{
                 width: 20px;
@@ -509,5 +565,4 @@
                 display: flex;
                 
             }
-
         }

@@ -1,19 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <title>3DValley</title>
-</head>
-<body>
 
-
-    {{{body}}}
-
-
-    <script>
-        function hide(toHide){
+       /* function hide(toHide){
             document.getElementById(toHide).style.display = "none";
         }
 
@@ -90,20 +76,12 @@
             document.getElementById(inputId).value = "";
         }  
 
-        function adminCancelEdit(parentId, ButtonClass){
+        function adminCancelEdit(parentId, inputClass){
             let children = {};
-            children = document.getElementById(parentId).getElementsByClassName(ButtonClass);
+            children = document.getElementById(parentId).getElementsByClassName(inputClass);
 
             for(let i = 0; i < children.length; i++){
-                if(children[i].style.animationName == "buttonToCancelAnimation"){
-                    setTimeout(()=>{
-                        children[i].click();
-                    }, 75*i)
-                }
+                children[i].value = '';
             }
-        }   
-        </script>
-
-
-</body>
-</html>
+        }   */
+        

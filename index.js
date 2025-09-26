@@ -8,6 +8,7 @@ const app = express();
 const {engine} = require('express-handlebars');
 app.engine('handlebars', engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
+app.use(express.static('public'))
 
 
 //bodyparser
