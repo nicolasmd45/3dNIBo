@@ -344,8 +344,9 @@
         
         .adminEditItemUpperInputContainer{
             display: flex;
+            width: 100%;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
         }
 
         .adminEditItemInput{
@@ -381,7 +382,7 @@
 
         .adminEditItemInputDiv{
             display: flex;
-            width: 80%;
+            width: 100%;
             flex-direction: row;
             color: #9b9b9b;
             justify-content: space-between;
@@ -482,6 +483,40 @@
             height: 44px;
             width: 104px;
             background-color: #009f05;
+        }
+
+        .adminEditItemTextArea{
+            width: 100%;
+            height: 90%;
+            animation:hideAnimation 0s both;
+            margin: 2px;
+            overflow-y: scroll;
+            padding: 2px;
+        }
+
+        .adminEditItemLower{
+            width: 100%;
+            height: 55%;
+            margin-top: 15px;
+        }
+
+        .adminEditItemLowerInputContainer{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 80%;
+        }
+
+        .adminEditItemTextDiv{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-direction: row;
+            color: #9b9b9b;
+            justify-content: space-between;
+            overflow-y: hidden;
+            align-items: start;
         }
 
         @keyframes hideAnimation{
