@@ -42,8 +42,7 @@ app.post("/admin", async function(req, res){
     let product = {}
     product.name = req.body.productName;
     product.imgSrc = req.body.productImgSrc;
-    product.infill = req.body.productInfillPreset;
-    product.color = req.body.productColorPreset;
+    product.price = req.body.productPrice;
     product.desc = req.body.productDescription;
 
     await db.insert(product);

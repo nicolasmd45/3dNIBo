@@ -490,7 +490,7 @@
             height: 90%;
             animation:hideAnimation 0s both;
             margin: 2px;
-            overflow-y: scroll;
+            overflow-y: auto;
             padding: 2px;
         }
 

@@ -114,15 +114,17 @@
             }
 
             if(anyButtonActive){
-                footer.style.animation = "showEditFooterAnimation .2s .2s both";
-                setTimeout(()=>{
-                    footer.style.animation = "showEditFooterAnimation 0s both";
-                }, 350)
+                if(footer.style.animationName != "showEditFooterAnimation"){
+                    footer.style.animation = "showEditFooterAnimation .2s  both";
+                    setTimeout(()=>{
+                        footer.style.animation = "showEditFooterAnimation 0s both";
+                    }, 200)
+                }
             }
             else{
-                footer.style.animation = "hideEditFooterAnimation ease .2s both";
+                footer.style.animation = "hideEditFooterAnimation .2s both";
                 setTimeout(()=>{
                     footer.style.animation = "hideEditFooterAnimation 0s both";
-                }, 150)
+                }, 300)
             }
         }

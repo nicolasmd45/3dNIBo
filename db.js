@@ -15,7 +15,7 @@ function DatabaseControl(){
     console.log("insert method called!")
     if (product.name != null){
       try{
-        await conn.query('INSERT INTO `catalogo` (name, imgSrc, infillPreset, colorPreset, description)  VALUES (?, ?, ?, ?, ?)', [product.name, product.imgSrc, product.infill, product.color, product.desc])           
+        await conn.query('INSERT INTO `catalogo` (name, imgSrc, price, description)  VALUES (?, ?, ?, ?)', [product.name, product.imgSrc, product.price, product.desc])           
         
         console.log("The item has been sucessfully added, with the following attributes:")
         for(let x in product){
