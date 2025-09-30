@@ -77,8 +77,8 @@ app.post("/admin", async function(req, res){
            if (debugMode == true){
                 console.log('product:');
                 console.log(product);
-                renderAdmin();
             }
+        renderAdmin();
 
     }
 
