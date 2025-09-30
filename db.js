@@ -1,5 +1,5 @@
 const mysql = require('mysql2/promise');
-
+let debugMode = false;
 
 //Conexão com o banco 
 const conn = mysql.createPool({
@@ -12,14 +12,18 @@ const conn = mysql.createPool({
 function DatabaseControl(){
 
   async function insert(product){
-    console.log("insert method called!")
     if (product.name != null){
       try{
-        await conn.query('INSERT INTO `catalogo` (name, imgSrc, price, description)  VALUES (?, ?, ?, ?)', [product.name, product.imgSrc, product.price, product.desc])           
+        await conn.query('INSERT INTO `catalogo` (name, imgSrc, price, description)  VALUES (?, ?, ?, ?)',
+           [product.name, product.imgSrc, product.price, product.desc])           
         
-        console.log("The item has been sucessfully added, with the following attributes:")
-        for(let x in product){
-          console.log(`${x}: ${product[x]}`)
+           
+        if (debugMode == true){
+          console.log("insert method called!")
+          console.log("The item has been sucessfully added, with the following attributes:")
+          for(let x in product){
+            console.log(`${x}: ${product[x]}`)
+          }
         }
       }
 
@@ -29,22 +33,26 @@ function DatabaseControl(){
     }
 
     else{
-      console.log("product is empty! Not inserting into database.")
-    } 
+      if (debugMode == true){
+        console.log("product is empty! Not inserting into database.")
+      }
+      } 
   }
   
 
   async function read(){
-    console.log("read method called!")
     let items = []
 
     try{
       items = await conn.query('SELECT * FROM catalogo') 
       items = items[0] //para eliminar a descrição da table
 
-      console.log("items:");
-      console.log(items);
-      console.log("length " + items.length);
+      if (debugMode == true){
+        console.log("read method called!")
+        console.log("items:");
+        console.log(items);
+        console.log("length " + items.length);
+      }
     }
 
     catch(err){
@@ -53,11 +61,29 @@ function DatabaseControl(){
 
     return items;
   }
+
+
+  async function update(product){
+    try{
+      await conn.query("UPDATE `catalogo` SET " +
+        "name = ?, " +
+        "imgSrc = ?, " +
+        "description = ?, " +
+        "price = ? " + 
+        "WHERE id = ? ", [product.name, product.imgSrc, product.description, product.price, product.id]
+      )
+
+    }
+    catch(err){
+      console.error(err);
+    }
+  }
       
 
   return {
     insert,
-    read
+    read,
+    update
   }
 }
 const db = DatabaseControl()

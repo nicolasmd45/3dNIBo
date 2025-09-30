@@ -2,7 +2,7 @@
 //express
 const express = require("express");
 const app = express();
-
+let debugMode = false;
 
 //handlebars
 const {engine} = require('express-handlebars');
@@ -22,6 +22,7 @@ const porta = 3000;
 app.listen(porta, function(){
     console.log("Debug:")
     console.log(`The server is running in the port ${porta}`)
+    console.warn('Debug Mode: ', + debugMode)
 })
 
 
@@ -39,17 +40,56 @@ app.get("/inicial", function(req, res){
 
 
 app.post("/admin", async function(req, res){
+
+    async function renderAdmin(){
+        let items = await db.read();
+        res.render("admin", {itemsHandle: items});
+    }
+
     let product = {}
-    product.name = req.body.productName;
-    product.imgSrc = req.body.productImgSrc;
-    product.price = req.body.productPrice;
-    product.desc = req.body.productDescription;
+    dbAction = req.body.dbAction;
 
-    await db.insert(product);
+
+    if(dbAction === "add"){
+        product.name = req.body.productName;
+        product.imgSrc = req.body.productImgSrc;
+        product.price = req.body.productPrice;
+        product.desc = req.body.productDescription;
+
+        await db.insert(product);
+
+        product = {};
+
+        renderAdmin();
+    }
+
+    else if(dbAction === "update"){
+        product = {};
+
+        id = req.body.productId;
+
+        product.name = req.body.editName === '' ? req.body.defaultName : req.body.editName;
+        product.imgSrc = req.body.editImage === '' ? req.body.defaultImage : req.body.editImage;
+        product.description = req.body.editDescription === '' ? req.body.defaultDescription : req.body.editDescription;
+        product.price = req.body.editPrice === '' ? req.body.defaultPrice : req.body.editPrice;
+        product.id = id;
+        await db.update(product);
+           if (debugMode == true){
+                console.log('product:');
+                console.log(product);
+                renderAdmin();
+            }
+
+    }
+
+    else{
+        if (debugMode == true){
+            console.error('Unknown database action: ', dbAction);
+        }
+
+        renderAdmin();
+    }
     
-    let items = await db.read();
-
-    res.render("admin", {itemsHandle: items});
 })
 
 //redirects ----------------------------------------------------------------------------------------------------------------------

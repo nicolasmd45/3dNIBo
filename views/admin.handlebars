@@ -62,7 +62,14 @@
 <div id="adminEditMenu">
     {{#each itemsHandle}}
         <form action="/admin" method="post" id="adminEditForm{{this.id}}">
+
             <input type="hidden" name="dbAction" value="update">
+            <input type="hidden" name="productId" value="{{this.id}}">
+            <input type="hidden" name="defaultName" value="{{this.name}}">
+            <input type="hidden" name="defaultImage" value="{{this.imgSrc}}">
+            <input type="hidden" name="defaultDescription" value="{{this.description}}">
+            <input type="hidden" name="defaultPrice" value="{{this.price}}">
+
             <div class="adminEditItem" id="item{{this.id}}">
                 <button type="button" class="adminAddMenuClose" onclick="hideTwo('item{{this.id}}', 'adminEditMenu')"> X </button>
                 <div class="adminEditItemUpper">
@@ -73,10 +80,10 @@
                     <div class="adminEditItemUpperInput">
 
                         <div class="adminEditItemUpperInputContainer">
-                            <label class="adminEditItemLabel" for="editName{{this.id}}">Nome do produto:</label>
+                            <label class="adminEditItemLabel" for="editName">Nome do produto:</label>
 
                             <div class="adminEditItemInputDiv">
-                                <input class="adminEditItemInput" type="text" name="editName{{this.id}}" id="editNameInput{{this.id}}">
+                                <input class="adminEditItemInput" type="text" name="editName" id="editNameInput{{this.id}}">
                                 
                                 <h3 id="editNameText{{this.id}}" class="adminEditItemInputText">{{this.name}}</h3>
                                 
@@ -94,10 +101,10 @@
                         </div>
 
                         <div class="adminEditItemUpperInputContainer">
-                            <label class="adminEditItemLabel" for="editImg{{this.id}}">URL da imagem:</label>
+                            <label class="adminEditItemLabel" for="editImg">URL da imagem:</label>
 
                             <div class="adminEditItemInputDiv">
-                                <input class="adminEditItemInput" type="text" name="editImage{{this.id}}" id="editImageInput{{this.id}}">
+                                <input class="adminEditItemInput" type="text" name="editImage" id="editImageInput{{this.id}}">
                                 
                                 <a href="{{this.imgSrc}}" target="_blank" id="editImageText{{this.id}}" class="adminEditItemInputText">{{this.imgSrc}}</a>
                                 
@@ -114,10 +121,10 @@
                         </div>
 
                         <div class="adminEditItemUpperInputContainer">
-                            <label class="adminEditItemLabel" for="editPrice{{this.id}}">Preço do produto:</label>
+                            <label class="adminEditItemLabel" for="editPrice">Preço do produto:</label>
 
                             <div class="adminEditItemInputDiv">
-                                <input class="adminEditItemInput" type="number" name="editPrice{{this.id}}" id="editPriceInput{{this.id}}">
+                                <input class="adminEditItemInput" type="number" name="editPrice" id="editPriceInput{{this.id}}">
                                 
                                 <h3 id="editPriceText{{this.id}}" class="adminEditItemInputText">{{this.price}}</h3>
                                 
@@ -137,10 +144,10 @@
                 </div>
                 <div id="adminEditItemLower{{this.id}}" class="adminEditItemLower">
                     <div class="adminEditItemLowerInputContainer">
-                        <label class="adminEditItemLabel" for="editDescription{{this.id}}">Descrição do produto:</label>
+                        <label class="adminEditItemLabel" for="editDescription">Descrição do produto:</label>
 
                         <div class="adminEditItemTextDiv">
-                            <textarea class="adminEditItemTextArea" name="editDescription{{this.id}}" id="editDescriptionInput{{this.id}}"></textarea>
+                            <textarea class="adminEditItemTextArea" name="editDescription" id="editDescriptionInput{{this.id}}"></textarea>
                             
                             <h3 id="editDescriptionText{{this.id}}" class="adminEditItemInputText">{{this.description}}</h3>
                             
