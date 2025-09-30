@@ -42,7 +42,7 @@ app.get("/inicial", function(req, res){
 app.post("/admin", async function(req, res){
 
     async function renderAdmin(){
-        let items = await db.read();
+        let items = await db.Read();
         res.render("admin", {itemsHandle: items});
     }
 
@@ -56,7 +56,7 @@ app.post("/admin", async function(req, res){
         product.price = req.body.productPrice;
         product.desc = req.body.productDescription;
 
-        await db.insert(product);
+        await db.Insert(product);
 
         product = {};
 
@@ -73,13 +73,24 @@ app.post("/admin", async function(req, res){
         product.description = req.body.editDescription === '' ? req.body.defaultDescription : req.body.editDescription;
         product.price = req.body.editPrice === '' ? req.body.defaultPrice : req.body.editPrice;
         product.id = id;
-        await db.update(product);
+        await db.Update(product);
            if (debugMode == true){
                 console.log('product:');
                 console.log(product);
                 renderAdmin();
             }
 
+    }
+
+    else if(dbAction === "delete"){
+        product = {};
+        product.id =req.body.productId;
+        await db.Delete(product);
+        if (debugMode == true){
+            console.log("Deleting item with id: " + product.id);
+        }
+         
+        renderAdmin();
     }
 
     else{

@@ -33,7 +33,7 @@
                 <input class="adminAddMenuInput" type="number" name="productPrice" placeholder="Preço" required>
                 <textarea class="adminAddMenuTextArea" name="productDescription" placeholder="Descrição do produto"></textarea required>
                 <input type="hidden" name="dbAction" value="add">
-                <input type="submit" value="Adicionar produto" class="adminAddMenuInput">
+                <input type="submit" value="Adicionar produto" class="adminAddMenuInput" onclick="document.getElementById('adminAddMenuForm').reset">
             </div>
         </form>
     </div>
@@ -61,6 +61,10 @@
 
 <div id="adminEditMenu">
     {{#each itemsHandle}}
+        <form id="adminDeleteForm{{this.id}}" action="/admin" method="post">
+            <input type="hidden" name="dbAction" value="delete">
+            <input type="hidden" name="productId" value="{{this.id}}">
+        </form>
         <form action="/admin" method="post" id="adminEditForm{{this.id}}">
 
             <input type="hidden" name="dbAction" value="update">
@@ -162,6 +166,12 @@
                             </button>
 
                         </div>
+
+
+                        <button  id="editItemDelete{{this.id}}" class="adminEditItemDeleteButton" type="button" onclick="document.getElementById('adminDeleteForm{{this.id}}').submit();">
+                            Excluir
+                        </button>
+
                     </div>
                 </div>
                 <div class="adminEditItemFooter" id="adminEditItemFooter{{this.id}}">

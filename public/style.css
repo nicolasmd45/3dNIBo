@@ -505,18 +505,46 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 80%;
+            height: 100%;
         }
 
         .adminEditItemTextDiv{
             display: flex;
             width: 100%;
-            height: 100%;
+            height: 75%;
             flex-direction: row;
             color: #9b9b9b;
             justify-content: space-between;
             overflow-y: hidden;
             align-items: start;
+        }
+
+        .adminEditItemDeleteButton{
+            height: 40px;
+            width: 100px;
+            margin: 5px;
+            border: none;
+            border-radius: 7px;
+            font-weight: 500;
+            transition: .1s;
+            color: #ffffff;
+            background-color: #c10000;
+        }
+
+        .adminEditItemDeleteButton:active{
+            margin: 3px;
+            height: 44px;
+            width: 104px;
+            background-color: #9d0000;
+
+        }
+
+        .adminEditItemDeleteButton:hover{
+            margin: 3px;
+            height: 44px;
+            width: 104px;
+            font-size: medium;
+
         }
 
         @keyframes hideAnimation{
