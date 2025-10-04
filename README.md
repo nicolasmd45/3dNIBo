@@ -6,4 +6,4 @@ Admin:
 just a basic crud with node-express, using handlebars to render it all.
 
 client:
-A more complex website, running on vite, wich i'm trying at my best to make it fancy, fixable and reuzable.
+A more complex website, running on vite, wich i'm trying at my best to make it fancy, fixable and reusable.
